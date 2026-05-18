@@ -1,5 +1,5 @@
 const PRODUCTS_URL = './produtos.json';
-const WHATSAPP_NUMBER = '5511999999999';
+const WHATSAPP_NUMBER = '5531992226115';
 const productDetail = document.getElementById('productDetail');
 
 function getProductId() {
