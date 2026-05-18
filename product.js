@@ -1,6 +1,6 @@
 const PRODUCTS_URL = './produtos.json';
 const WHATSAPP_NUMBER = '5531992226115';
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = '';
 const productDetail = document.getElementById('productDetail');
 
 function getProductId() {
