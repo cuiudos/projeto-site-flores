@@ -78,6 +78,17 @@ main {
   margin-bottom: 2rem;
 }
 
+.intro-text {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.catalog-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
 .catalog-header {
   display: flex;
   justify-content: space-between;
@@ -292,6 +303,129 @@ main {
 
 .purchase-section input:focus {
   border-color: var(--accent-dark);
+}
+
+.occasion-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 2rem;
+}
+
+.occasion-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  min-height: 180px;
+  display: grid;
+  gap: 0.75rem;
+  box-shadow: 0 18px 45px rgba(25, 23, 22, 0.05);
+}
+
+.occasion-love {
+  border-color: rgba(192, 57, 43, 0.15);
+}
+
+.occasion-celebration {
+  border-color: rgba(39, 174, 96, 0.15);
+}
+
+.occasion-elegant {
+  border-color: rgba(41, 128, 185, 0.15);
+}
+
+.occasion-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.highlight-box {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,245,238,0.96));
+  border-radius: 26px;
+  border: 1px solid rgba(217, 132, 124, 0.3);
+  padding: 1.75rem;
+  box-shadow: 0 20px 50px rgba(25, 23, 22, 0.06);
+}
+
+.highlight-box h3 {
+  margin: 0 0 0.75rem;
+}
+
+.purchase-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  backdrop-filter: blur(14px);
+  background: rgba(250, 245, 240, 0.92);
+  box-shadow: 0 -10px 45px rgba(25, 23, 22, 0.12);
+  z-index: 30;
+}
+
+.purchase-drawer-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 26px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(43, 43, 43, 0.08);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.drawer-title {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.drawer-close {
+  border: none;
+  background: #f4f4f4;
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.purchase-drawer label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.purchase-drawer input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.drawer-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .detail-page {

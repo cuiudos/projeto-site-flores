@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Flores | Floricultura Bela Flor</title>
+  <meta name="description" content="Veja nosso catálogo de flores, filtros por categoria e peça direto pelo WhatsApp com quantidade personalizada." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero product-hero">
+    <div class="hero-content">
+      <h1>Catálogo de flores</h1>
+      <p>Escolha seu arranjo, selecione a quantidade e abra o WhatsApp com tudo pronto.</p>
+      <a class="button" href="index.html">Voltar para a introdução</a>
+    </div>
+  </header>
+
+  <main class="catalog-page">
+    <section class="intro" id="catalogo">
+      <div class="catalog-header">
+        <div>
+          <h2>Nossas flores</h2>
+          <p>Encontre rosas, tulipas, lírios e arranjos para ocasiões especiais.</p>
+        </div>
+        <div class="filters">
+          <label>Filtro por categoria:
+            <select id="categoryFilter">
+              <option value="">Todas</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-grid" id="products"></section>
+  </main>
+
+  <div class="purchase-drawer hidden" id="purchasePanel">
+    <div class="purchase-drawer-card">
+      <div class="drawer-header">
+        <div>
+          <p class="drawer-title">Pedido</p>
+          <strong id="purchaseProductName">Selecionado</strong>
+        </div>
+        <button class="drawer-close" id="closePurchase">×</button>
+      </div>
+
+      <label>Quantidade</label>
+      <input type="number" id="purchaseQuantity" min="1" value="1" />
+      <button class="button button-full" id="purchaseConfirm">Abrir WhatsApp</button>
+      <p class="drawer-note">O pedido será enviado com o total calculado e o número correto do WhatsApp.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Floricultura Bela Flor • Compra direta pelo WhatsApp • Flores, buquês e entregas.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

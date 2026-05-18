@@ -3,7 +3,13 @@ const WHATSAPP_NUMBER = '5531992226115';
 const BACKEND_URL = '';
 const productsContainer = document.getElementById('products');
 const categoryFilter = document.getElementById('categoryFilter');
+const purchasePanel = document.getElementById('purchasePanel');
+const purchaseProductName = document.getElementById('purchaseProductName');
+const purchaseQuantity = document.getElementById('purchaseQuantity');
+const purchaseConfirm = document.getElementById('purchaseConfirm');
+const closePurchase = document.getElementById('closePurchase');
 let allProducts = [];
+let selectedProduct = null;
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -117,37 +123,47 @@ function buildWhatsAppMessage(product, quantidade) {
 }
 
 function handlePurchaseClick(product) {
-  if (!product) return;
+  if (!product || !purchasePanel || !purchaseProductName || !purchaseQuantity) return;
+  selectedProduct = product;
+  purchaseProductName.textContent = product.nome;
+  purchaseQuantity.value = '1';
+  purchasePanel.classList.remove('hidden');
+}
 
-  const quantidade = prompt('Quantos buquês/arranjos você deseja?', '1');
-  
-  if (quantidade === null) return;
-  
-  const qtd = parseInt(quantidade, 10);
+function closePurchasePanel() {
+  if (!purchasePanel) return;
+  purchasePanel.classList.add('hidden');
+  selectedProduct = null;
+}
+
+function confirmPurchase() {
+  if (!selectedProduct || !purchaseQuantity) return;
+  const qtd = parseInt(purchaseQuantity.value, 10);
   if (isNaN(qtd) || qtd < 1) {
     alert('Por favor, insira uma quantidade válida.');
     return;
   }
 
-  // Salvar pedido no backend
   const orderData = {
-    produtoId: product.id,
-    produto: product.nome,
-    categoria: product.categoria,
-    preco: product.preco,
+    produtoId: selectedProduct.id,
+    produto: selectedProduct.nome,
+    categoria: selectedProduct.categoria,
+    preco: selectedProduct.preco,
     quantidade: qtd,
     origem: 'site-de-flores',
     data: new Date().toISOString(),
   };
-  
+
   saveOrder(orderData);
 
-  const message = buildWhatsAppMessage(product, qtd);
+  const message = buildWhatsAppMessage(selectedProduct, qtd);
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
   window.open(url, '_blank');
+  closePurchasePanel();
 }
 
 async function loadProducts() {
+  if (!productsContainer) return;
   try {
     const response = await fetch(PRODUCTS_URL);
     allProducts = await response.json();
@@ -159,6 +175,16 @@ async function loadProducts() {
   }
 }
 
-categoryFilter.addEventListener('change', filterProducts);
+if (categoryFilter) {
+  categoryFilter.addEventListener('change', filterProducts);
+}
+
+if (closePurchase) {
+  closePurchase.addEventListener('click', closePurchasePanel);
+}
+
+if (purchaseConfirm) {
+  purchaseConfirm.addEventListener('click', confirmPurchase);
+}
 
 loadProducts();
