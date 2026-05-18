@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nome": "Buquê Rosas Vermelhas",
+    "preco": 149.9,
+    "categoria": "Rosas",
+    "descricaoCurta": "Rosas clássicas com folhagem verde.",
+    "descricao": "Buquê com 12 rosas vermelhas frescas, acabamento em folhas verdes e embalagem premium. Ideal para declarações de amor e datas especiais.",
+    "disponibilidade": "Pronta entrega em 24h",
+    "imagem": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "nome": "Arranjo Tulipas Coloridas",
+    "preco": 129.5,
+    "categoria": "Tulipas",
+    "descricaoCurta": "Tulipas vibrantes com laço especial.",
+    "descricao": "Arranjo composto por tulipas coloridas em vaso moderno, perfeito para comemorar aniversários, datas especiais e deixar a casa mais alegre.",
+    "disponibilidade": "Produção em até 2 dias",
+    "imagem": "https://images.unsplash.com/photo-1524594154909-5f7102f44f9f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "nome": "Vaso de Lírios Brancos",
+    "preco": 179.0,
+    "categoria": "Lírios",
+    "descricaoCurta": "Lírios elegantes para decoração sofisticada.",
+    "descricao": "Arranjo em vaso transparente com lírios brancos, folhagens e acabamento delicado. Excelente para recepções, ambientes corporativos ou presentes refinados.",
+    "disponibilidade": "Disponível hoje",
+    "imagem": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "nome": "Kit Flores do Campo",
+    "preco": 119.0,
+    "categoria": "Campo",
+    "descricaoCurta": "Mix rústico e natural de flores do campo.",
+    "descricao": "Combo com flores do campo, perfeito para quem gosta de estilo rústico e aconchegante. Ideal para presente e ambiente da casa.",
+    "disponibilidade": "Estoque limitado",
+    "imagem": "https://images.unsplash.com/photo-1495121605193-b116b5b9c5d7?auto=format&fit=crop&w=800&q=80"
+  }
+]
