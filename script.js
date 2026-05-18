@@ -1,5 +1,6 @@
 const PRODUCTS_URL = './produtos.json';
 const WHATSAPP_NUMBER = '5531992226115';
+const BACKEND_URL = 'http://localhost:3001';
 const productsContainer = document.getElementById('products');
 const categoryFilter = document.getElementById('categoryFilter');
 let allProducts = [];
@@ -9,6 +10,19 @@ function formatCurrency(value) {
     style: 'currency',
     currency: 'BRL',
   }).format(value);
+}
+
+async function saveOrder(order) {
+  if (!BACKEND_URL) return;
+  try {
+    await fetch(`${BACKEND_URL}/api/pedidos`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(order),
+    });
+  } catch (error) {
+    console.warn('Não foi possível salvar pedido no backend:', error);
+  }
 }
 
 function getProductCard(product) {
@@ -114,6 +128,19 @@ function handlePurchaseClick(product) {
     alert('Por favor, insira uma quantidade válida.');
     return;
   }
+
+  // Salvar pedido no backend
+  const orderData = {
+    produtoId: product.id,
+    produto: product.nome,
+    categoria: product.categoria,
+    preco: product.preco,
+    quantidade: qtd,
+    origem: 'site-de-flores',
+    data: new Date().toISOString(),
+  };
+  
+  saveOrder(orderData);
 
   const message = buildWhatsAppMessage(product, qtd);
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
